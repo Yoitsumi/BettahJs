@@ -1,0 +1,12 @@
+// comprehension syntax is inspired by scala's for, and is compiled in almost identical way
+// the following two statements are equivalent
+var x = for(i <- [1 to 10]) yield i * 2
+var x = [1 to 10].map(i -> i * 2)
+
+// you can also use filters and newlines or semicolons as separators
+// there's also a statement variant, that compiles to forEach
+for(
+    x <- [1 to 10]
+    y <- [1 to x]
+    if (x + y) % 2 === 0
+) console.log(x + ',' + y)

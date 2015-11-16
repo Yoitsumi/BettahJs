@@ -1,0 +1,27 @@
+// lambdas
+var adder = (x, y) -> x + y
+// you can also drop the parentheses for one argument or parameterless lambda
+var succ = x -> x + 1
+var foo = -> "foo"
+
+// you can use scala style function definitions
+function multiply(x, y) = x * y
+// you can omit parentheses for functions without parameters
+function bar = "bar"
+
+// there's a syntax for range literals
+var inclusive = [1 to 10] // = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+var exclusive = [1 until 10] // = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+// you can provide step with keyword 'by'
+var withStep = [1 to 10 by 2] // = [1, 3, 5, 7, 9]
+// range literals are desugared as calls to range or rangeExclusive
+// as of yet, these are not added automatically, so to use them it is necessary to implement the functions you need
+
+// you can use ruby-style blocks with calls
+$('#button').click {
+    console.log("button clicked!")
+}
+// parameters can be bound by using lambda-like syntax
+[1 to 10].forEach { i ->
+    console.log("Hello, World " + i + "!")
+}

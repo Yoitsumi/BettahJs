@@ -1,0 +1,11 @@
+// for now pattern matching only works in var declarations and special 'match' construct
+var [a, b] = [10, 11]
+console.log(a + ", " + b) // >> 10, 11
+{x: 10, y: 20} match {
+    case {x: 20} -> console.log("will not print, because x is 10" )
+    case {a: _} -> {
+        console.log("multiple statements must be enclosed in braces, since case match requires an expression")
+        console.log("this will not be printed, even though value of property a is ignored, it cannot be undefined")
+    }
+    case {y: y} -> console.log("y is bound to 20, properties not mentioned in match are ignored")
+}
